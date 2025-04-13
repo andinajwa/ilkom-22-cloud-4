@@ -30,6 +30,10 @@ jobs:
       run: |
         php composer.phar install --no-interaction --prefer-dist --optimize-autoloader
 
+     # Give execute permission to PHPUnit (if needed)
+    - name: Give PHPUnit execute permission
+      run: chmod +x vendor/phpunit/phpunit/phpunit   
+
     # Run tests with PHPUnit (Optional)
     - name: Run tests
       run: |
