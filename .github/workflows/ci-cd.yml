@@ -22,7 +22,7 @@ jobs:
       with:
         php-version: '8.3.7'
 
-    # Install dependencies
+    # Install Composer
     - name: Install Composer
       run: curl -sS https://getcomposer.org/installer | php
 
@@ -30,15 +30,13 @@ jobs:
       run: |
         php composer.phar install --no-interaction --prefer-dist --optimize-autoloader
 
-     # Give execute permission to PHPUnit (if needed)
-    - name: Give PHPUnit execute permission
-      run: chmod +x vendor/phpunit/phpunit/phpunit   
+    # Give execute permission to PHPUnit
+    - name: Give execute permission to PHPUnit
+      run: chmod +x ./vendor/bin/phpunit
 
-      # Run PHPUnit Tests with phpunit.xml configuration
-    - name: Run PHPUnit Tests
+    # Run PHPUnit tests
+    - name: Run tests with PHPUnit
       run: |
-          if [ -f vendor/phpunit/phpunit/phpunit ]; then
-          vendor/phpunit/phpunit/phpunit --configuration phpunit.xml
-          else
-          echo "No PHPUnit tests found."
-          fi
+        ./vendor/bin/phpunit --configuration phpunit.xml
+
+   
