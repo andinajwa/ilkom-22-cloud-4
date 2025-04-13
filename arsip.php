@@ -234,7 +234,7 @@ foreach ($total_surat as $ts) {
                                 <td><?= htmlspecialchars($ts['jumlah']) ?></td>
                             </tr>
                         <?php endforeach; ?>
-                        <!-- Menampilkan Total Surat Masuk dan Keluar -->
+                        <!-- Menampilkan Total Surat Masuk dan Surat Keluar -->
                         <tr class="total-row-all">
                             <td colspan="3" class="text-center">Total Semua Surat</td>
                             <td><?= $total_masuk_keluar ?></td>
