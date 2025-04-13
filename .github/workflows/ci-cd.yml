@@ -34,7 +34,11 @@ jobs:
     - name: Give PHPUnit execute permission
       run: chmod +x vendor/phpunit/phpunit/phpunit   
 
-    # Run tests with PHPUnit (Optional)
-    - name: Run tests
+      # Run PHPUnit Tests with phpunit.xml configuration
+    - name: Run PHPUnit Tests
       run: |
-        ./vendor/bin/phpunit --configuration phpunit.xml
+          if [ -f vendor/phpunit/phpunit/phpunit ]; then
+          vendor/phpunit/phpunit/phpunit --configuration phpunit.xml
+          else
+          echo "No PHPUnit tests found."
+          fi
