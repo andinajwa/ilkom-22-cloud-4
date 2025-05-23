@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once('includes/config.php');
 require_once 'vendor/autoload.php';
 
@@ -39,7 +44,7 @@ try {
 
     // === Google Sheets ===
     $client = new Google_Client();
-    $client->setAuthConfig('D:\xampp\htdocs\sipatracloud\Credentials.json');
+    $client->setAuthConfig('/var/www/html/ilkom-22-cloud-4/Credentials.json');
     $client->addScope(Google_Service_Sheets::SPREADSHEETS);
 
     $service = new Google_Service_Sheets($client);
